@@ -69,9 +69,21 @@
                     </ul>
                 </div>
             </div>
-        </nav>
+		</nav>
+		
+		<div class="container">
+				<div class="row">
+					<div class="col-md-3">
+							@include('includes.menu')
+					</div>
+					<div class="col-md-9">
+							@yield('content')
+					</div>
+			  </div>
+		</div>
 
-        @yield('content')
+	
+	
     </div>
 
 	<!-- Scripts -->
@@ -83,4 +95,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </body>
+
+
+
+
 </html>
