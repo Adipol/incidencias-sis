@@ -13,9 +13,17 @@
 					<li>
 						<a href="">Reportar incidencias</a>
 					</li>
-					<li>
-						<a href="">Administracion</a>
-					</li>
+					<li role="presentation" class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						  Administracion <span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+						  <li><a href="/usuarios">Usuarios</a></li>
+						  <li><a href="">Proyectos</a></li>
+						  <li><a href="">Configuracion</a></li>
+						</ul>
+					  </li>
+
 				@else
 				    <li>
 						<a href="">Bienvenido</a>
