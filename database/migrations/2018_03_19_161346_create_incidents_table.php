@@ -27,10 +27,10 @@ class CreateIncidentsTable extends Migration
 			$table->foreign('level_id')->references('id')->on('levels');
 
 			$table->integer('client_id')->unsigned();
-			$table->foreign('client_id')->references('id')->on('clients');
+			$table->foreign('client_id')->references('id')->on('users');
 
 			$table->integer('support_id')->unsigned();
-			$table->foreign('support_id')->references('id')->on('supports');
+			$table->foreign('support_id')->references('id')->on('users');
 
             $table->timestamps();
         });
