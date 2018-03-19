@@ -27,9 +27,12 @@ class HomeController extends Controller
         return view('home');
 	}
 	
-	public function report(){
+	public function getReport(){
 		$categories = Category::where('project_id',1)->get();
 		return view('report')->with('categories',$categories); //with(compact('categories'))
+	}
+
+	public function postReport(){
 	}
 
 }

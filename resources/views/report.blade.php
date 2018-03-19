@@ -6,8 +6,8 @@
 		<div class="panel-heading">Dashboard</div>
 
 	<div class="panel-body">
-		<form action="">
-		
+		<form action="" method="POST">
+		{{ csrf_field() }}
 				 <div class="form-group">
 					<label for="category_id">Categorias</label>
 					<select name="category_id" class="form-control">
