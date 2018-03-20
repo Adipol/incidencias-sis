@@ -7,11 +7,11 @@
 
 	<div class="panel-body">
 
-		@if(count($errors)>0)
+		@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
-					@foreach($errors->all( as $error))
-						<li>{{ $errors }}</li>
+					@foreach($errors->all() as $error)
+						<li>{{ $error }}</li>
 					@endforeach
 				</ul>
 			</div>
@@ -43,12 +43,12 @@
 
 		<div class="form-group">
 			<label for="title">Titulo</label>
-			<input type="text" name="title" class="form-control">
+		<input type="text" name="title" class="form-control" value="{{ old('title')}}">
 		</div>
 
 		<div class="form-group">
 			<label for="description">Descripcion</label>
-			<textarea name="description" class="form-control"></textarea>
+		<textarea name="description" class="form-control">{{ old ('description')}}</textarea>
 		</div>
 		
 		<div class="form-group">
