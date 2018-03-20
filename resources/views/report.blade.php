@@ -32,7 +32,7 @@
 
 		<div class="form-group">
 			<label for="title">Titulo</label>
-			<input type="text" value="title" class="form-control">
+			<input type="text" name="title" class="form-control">
 		</div>
 
 		<div class="form-group">

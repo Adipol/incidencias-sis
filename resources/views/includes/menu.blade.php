@@ -11,7 +11,7 @@
 						<a href="">Ver incidencias</a>
 					</li>
 					<li>
-						<a href="">Reportar incidencias</a>
+						<a href="/reportar">Reportar incidencias</a>
 					</li>
 					<li role="presentation" class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">

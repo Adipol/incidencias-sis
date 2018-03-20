@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use App\Incident;
 
 class HomeController extends Controller
 {
@@ -32,7 +33,16 @@ class HomeController extends Controller
 		return view('report')->with('categories',$categories); //with(compact('categories'))
 	}
 
-	public function postReport(){
+	public function postReport(Request $request){
+		$incident = new Incident();
+		$incident->category_id = $request->input('category_id')?: null;
+		$incident->severity = $request->input('severity');
+		$incident->title = $request->input('title');
+		$incident->description = $request->input('description');
+		$incident->client_id = auth()->user()->id;
+		$incident->save();
+		
+		return back();
 	}
 
 }
