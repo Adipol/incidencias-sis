@@ -7,14 +7,19 @@
 					<li @if(request()->is('home')) class="active" @endif>
 						<a href="/home">Dashboard</a>
 					</li>
-					<li>
+
+					@if(!auth()->user()->is_client)
+
+					<li @if(request()->is('ver')) class="active" @endif>
 						<a href="/ver">Ver incidencias</a>
 					</li>
+					@endif
+
 					<li @if(request()->is('reportar')) class="active" @endif>
 						<a href="/reportar">Reportar incidencias</a>
 					</li> 
 
-					@if( auth()->users()->is_admin)
+					@if( auth()->user()->is_admin)
 					<li role="presentation" class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 						  Administracion <span class="caret"></span>
