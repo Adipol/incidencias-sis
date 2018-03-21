@@ -19,7 +19,7 @@
 						<a href="/reportar">Reportar incidencias</a>
 					</li> 
 
-					@if( auth()->user()->is_admin)
+					@if(!auth()->user()->is_admin)
 					<li role="presentation" class="dropdown">
 						<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
 						  Administracion <span class="caret"></span>
