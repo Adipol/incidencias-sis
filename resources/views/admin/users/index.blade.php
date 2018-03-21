@@ -63,7 +63,7 @@
 					<a href="/usuarios/{{$user->id}}" class="btn btn-sm btn-primary">
 						<span class="glyphicon glyphicon-pencil"></span>
 					</a>
-					<a href="" class="btn btn-sm btn-danger">
+					<a href="/usuarios/{{$user->id}}/eliminar" class="btn btn-sm btn-danger">
 							<span class="glyphicon glyphicon-trash"></span>
 					</a>
 				</td>
