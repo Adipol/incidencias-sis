@@ -29,7 +29,8 @@ Route::group(['middleware' => 'admin','namespace'=>'Admin'], function () {
 	Route::get('/proyectos/{id}', 'ProjectController@edit');
 	Route::post('/proyectos/{id}', 'ProjectController@update');
 
-	Route::get('/projectos/{id}/eliminar','ProjectController@delete');
+	Route::get('/proyectos/{id}/eliminar','ProjectController@delete');
+	Route::get('/proyectos/{id}/restaurar','ProjectController@restore');
 	
 	Route::get('/config', 'ConfigController@index');
 });

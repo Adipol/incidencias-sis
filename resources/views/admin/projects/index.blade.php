@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="panel panel-default">
-		<div class="panel-heading">Usuario</div>
+		<div class="panel-heading">Proyecto</div>
 
 	<div class="panel-body">
 
@@ -66,9 +66,16 @@
 					<a href="/proyectos/{{$project->id}}" class="btn btn-sm btn-primary">
 						<span class="glyphicon glyphicon-pencil"></span>
 					</a>
-					<a href="/proyectos/{{$project->id}}/eliminar" class="btn btn-sm btn-danger">
+					@if($project->trashed())
+						<a href="/proyectos/{{$project->id}}/restaurar" class="btn btn-sm btn-success">
+							<span class="glyphicon glyphicon-repeat"></span>
+						</a>
+					@else
+						<a href="/proyectos/{{$project->id}}/eliminar" class="btn btn-sm btn-danger">
 							<span class="glyphicon glyphicon-trash"></span>
-					</a>
+						</a>
+					@endif
+
 				</td>
 			</tr>
 			@endforeach
