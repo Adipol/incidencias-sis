@@ -36,6 +36,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
+						@if(auth()->checK())
                         <form class="navbar-form">
 							<div class="form-group">
 								<select name="" class="form-control">
@@ -43,6 +44,7 @@
 								</select>
 							</div>
 						</form>
+						@endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -46,6 +46,27 @@
 		</div>  
 	</form>
 
+	<div class="row">
+		<div class="col-md-4">
+			<select name="" class="form-control" id="select-project">
+				<option value="">Seleccione proyecto</option>
+				@foreach($projects as $project)
+					<option value="{{ $project->id }}">{{ $project->name}}</option>
+				@endforeach
+			</select>
+		</div>
+		<div class="col-md-4">
+				<select name="" class="form-control" id="select-level">
+					<option value="">Seleccione nivel</option>
+					
+				</select>
+		</div>
+			<div class="col-md-4">
+				<button class="btn btn-primary btn-block">Asignar proyecto</button>
+			</div>
+	</div>
+
+
 	<table class="table table-bordered">
 		<thead>
 			<tr>
@@ -74,4 +95,8 @@
 	</div>
 </div>
 
+@endsection
+
+@section('scripts')
+	<script src="/js/admin/users/edit.js"></script>
 @endsection
