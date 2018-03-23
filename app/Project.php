@@ -24,5 +24,13 @@ class Project extends Model
         'name', 'description', 'start',
     ];
 
+	public function categories(){
+		return $this->hasmany('App\Category');
+	}
+
+	public function levels(){
+		return $this->hasmany('App\Level');
+	}
+
 
 }
