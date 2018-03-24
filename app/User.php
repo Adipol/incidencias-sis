@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Project;
 
 class User extends Authenticatable
 {
@@ -18,8 +19,23 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
 	];
-	
-	public function getIsAdminAtrtribute(){
+
+	//relationship
+
+	public function projects(){
+		
+		return $this->belongsToMany('App\Project');
+	}
+
+	//accessors
+	public function getListOfProjectsAttribute(){
+		if($this->role==1)
+			return $this->projects;
+			
+		return Project::all();	
+	} 
+
+	public function getIsAdminAttribute(){
 		return $this->role==0;
 	}
 
