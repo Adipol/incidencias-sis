@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use App\Project;
 use App\Level;
+use App\ProjectUser;
 
 class UserController extends Controller
 {
@@ -49,9 +50,9 @@ class UserController extends Controller
 	public function edit($id){
 		$user=User::find($id);
 		$projects=Project::all();
-		$levels=Level::all();
+		$projects_users= ProjectUser::where('user_id',$user->id)->get();
 		
-		return view('admin.users.edit')->with(compact('user','projects','levels'));
+		return view('admin.users.edit')->with(compact('user','projects','projects_users'));
 	}
 
 	public function update($id, Request $request){
