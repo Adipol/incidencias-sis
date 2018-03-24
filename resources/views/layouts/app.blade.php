@@ -39,7 +39,7 @@
 						@if(auth()->checK())
                         <form class="navbar-form">
 							<div class="form-group">
-								<select name="" class="form-control">
+								<select id="list-of-projects" class="form-control">
 									@foreach(auth()->user()->list_of_projects as $project)
 								<option value="{{ $project->id}}">{{ $project->name}}</option>
 									@endforeach
@@ -103,6 +103,7 @@
 			  crossorigin="anonymous"></script>
 
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	<script src="/js/app.js"></script>
 	@yield('scripts')
 </body>
 

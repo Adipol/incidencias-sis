@@ -8,6 +8,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/seleccionar/proyecto/{id}','HomeController@selectProject');
+
 Route::get('/reportar', 'HomeController@getReport');
 Route::post('/reportar', 'HomeController@postReport');
 

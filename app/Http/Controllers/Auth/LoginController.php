@@ -35,5 +35,17 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-    }
+	}
+	
+	protected function authenticated(){
+		$user=auth()->user();
+		if($user->is_admin || $user->is_client)
+		return;
+
+		
+		if(! $user->selected_project_id){
+			$user->selected_project_id=$user->projects->first()->id;
+			$user->save();
+		}
+	}
 }

@@ -8,24 +8,24 @@ use App\Incident;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         return view('home');
+	}
+
+	public function selectProject($id){
+		
+		$user = auth()->user();
+		$user->selected_project_id =$id;
+		$user->save(); 
+
+		return back();
 	}
 	
 	public function getReport(){
@@ -62,5 +62,7 @@ class HomeController extends Controller
 		
 		return back();
 	}
+
+
 
 }
