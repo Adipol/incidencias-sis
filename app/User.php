@@ -38,6 +38,10 @@ class User extends Authenticatable
 	public function getIsAdminAttribute(){
 		return $this->role==0;
 	}
+	
+	public function getIsSupportAttribute(){
+		return $this->role==1;
+	}
 
 	public function getIsClientAttribute(){
 		return $this->role ==2;

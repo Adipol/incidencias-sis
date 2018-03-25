@@ -6,13 +6,15 @@
 	<div class="panel-heading">Dashboard</div>
 
 <div class="panel-body">
+	@if(auth()->user()->is_support)
 
 	<div class="panel panel-success">
 		<div class="panel-heading">
 				<h3 class="panel-title">Incidencias asignadas a mi</h3>
 		</div>
 		
-	<div class="panel-body">
+	
+		<div class="panel-body">
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -39,7 +41,7 @@
 			</tbody>
 		</table>
 	</div>
-</div>
+    </div>
 
 	<div class="panel panel-success">
 			<div class="panel-heading">
@@ -63,7 +65,7 @@
 					@foreach($pending_incidents as $incident)
 					<tr>
 						<th>{{ $incident->id}}</th>
-						<th>{{ $incident->category->name}}</th>
+						<th>{{ $incident->category_name}}</th>
 						<th>{{ $incident->severity_full}}</th>
 						<th>{{ $incident->id}}</th>
 						<th>{{ $incident->created_at}}</th>
@@ -79,6 +81,8 @@
 			</table>
 		</div>
 	</div>
+	@endif
+
 
 		<div class="panel panel-success">
 				<div class="panel-heading">
@@ -106,7 +110,7 @@
 							<th>{{ $incident->id}}</th>
 							<th>{{ $incident->created_at}}</th>
 							<th>{{ $incident->title_short}}</th>
-							<th>{{ $incident->support_id}}</th>
+							<th>{{ $incident->support_id ?: 'Sin asignar'}}</th>
 						</tr>
 						@endforeach
 					</tbody>
