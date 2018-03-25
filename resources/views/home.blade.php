@@ -21,10 +21,22 @@
 					<th>Severidad</th>
 					<th>Estado</th>
 					<th>Fecha creación</th>
-					<th>Resumen</th>
+					<th>Titulo</th>
 				</tr>
 			</thead>
-			<tbody id="dashboard_my_incidents"></tbody>
+			<tbody id="dashboard_my_incidents">
+				@foreach($my_incidents as $incident)
+ 					<tr>
+     					<td>{{ $incident->id }}</td>
+     					<td>{{ $incident->category->name}}</td>
+					    <td>{{ $incident->severity_full }}</td>
+					    <td>{{ $incident->id }}</td>
+						<td>{{ $incident->created_at }}</td>						
+					    <td>{{ $incident->title_short }}</td>
+					</tr>
+
+				@endforeach
+			</tbody>
 		</table>
 	</div>
 </div>
@@ -42,11 +54,28 @@
 						<th>Severidad</th>
 						<th>Estado</th>
 						<th>Fecha creación</th>
-						<th>Resumen</th>
+						<th>Titulo</th>
 						<th>Opción</th>
 					</tr>
+
 				</thead>
-				<tbody id="dashboard_no_responsible"></tbody>
+				<tbody id="dashboard_no_responsible">
+					@foreach($pending_incidents as $incident)
+					<tr>
+						<th>{{ $incident->id}}</th>
+						<th>{{ $incident->category->name}}</th>
+						<th>{{ $incident->severity_full}}</th>
+						<th>{{ $incident->id}}</th>
+						<th>{{ $incident->created_at}}</th>
+						<th>{{ $incident->title_short}}</th>
+						<th>
+							<a href="" class="btn btn-primary btn-sm">
+								Atender
+							</a>
+						</th>
+					</tr>
+					@endforeach
+				</tbody>
 			</table>
 		</div>
 	</div>
@@ -64,11 +93,23 @@
 							<th>Severidad</th>
 							<th>Estado</th>
 							<th>Fecha creación</th>
-							<th>Resumen</th>
+							<th>Titulo</th>
 							<th>Responsable</th>
 						</tr>
 					</thead>
-					<tbody id="dashboard_to_others"></tbody>
+					<tbody id="dashboard_by_me">
+						@foreach($incidents_by_me as $incident)
+						<tr>
+							<th>{{ $incident->id}}</th>
+							<th>{{ $incident->category->name}}</th>
+							<th>{{ $incident->severity_full}}</th>
+							<th>{{ $incident->id}}</th>
+							<th>{{ $incident->created_at}}</th>
+							<th>{{ $incident->title_short}}</th>
+							<th>{{ $incident->support_id}}</th>
+						</tr>
+						@endforeach
+					</tbody>
 				</table>
 			</div>
 		</div>
