@@ -12,22 +12,22 @@ class LevelsTableSeeder extends Seeder
      */
     public function run()
     {
-        Level::create([
+        Level::create([//1
 			'name'=>'Atencion por telefono',
 			'project_id'=>1
 		]);
 
-		Level::create([
+		Level::create([//2
 			'name'=>'Envio técnico',
 			'project_id'=>1
 		]);
 
-		Level::create([
+		Level::create([//3
 			'name'=>'Mesa de ayuda',
 			'project_id'=>2
 		]);
 
-		Level::create([
+		Level::create([//4
 			'name'=>'Consulta especializada',
 			'project_id'=>2
 		]);

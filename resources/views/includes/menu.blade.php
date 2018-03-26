@@ -11,7 +11,7 @@
 					@if(!auth()->user()->is_client)
 
 					<li @if(request()->is('ver')) class="active" @endif>
-						<a href="/ver">Ver incidencias</a>
+					  <a href="">Ver incidencias</a>
 					</li>
 					@endif
 

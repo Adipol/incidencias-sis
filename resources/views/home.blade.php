@@ -29,10 +29,10 @@
 			<tbody id="dashboard_my_incidents">
 				@foreach($my_incidents as $incident)
  					<tr>
-     					<td>{{ $incident->id }}</td>
+     					<td> <a href="/ver/{{$incident->id}}">{{ $incident->id }}</a> </td>
      					<td>{{ $incident->category->name}}</td>
 					    <td>{{ $incident->severity_full }}</td>
-					    <td>{{ $incident->id }}</td>
+					    <td>{{ $incident->state }}</td>
 						<td>{{ $incident->created_at }}</td>						
 					    <td>{{ $incident->title_short }}</td>
 					</tr>
@@ -51,7 +51,7 @@
 			<table class="table table-bordered">
 				<thead>
 					<tr>
-						<th>Código</th>
+						<td>Codigo</td>
 						<th>Categoria</th>
 						<th>Severidad</th>
 						<th>Estado</th>
@@ -64,14 +64,14 @@
 				<tbody id="dashboard_no_responsible">
 					@foreach($pending_incidents as $incident)
 					<tr>
-						<th>{{ $incident->id}}</th>
+						<td> <a href="/ver/{{$incident->id}}">{{ $incident->id }}</a> </td>
 						<th>{{ $incident->category_name}}</th>
 						<th>{{ $incident->severity_full}}</th>
-						<th>{{ $incident->id}}</th>
+						<th>{{ $incident->state}}</th>
 						<th>{{ $incident->created_at}}</th>
 						<th>{{ $incident->title_short}}</th>
 						<th>
-							<a href="" class="btn btn-primary btn-sm">
+							<a href="/ver/{{$incident->id}}" class="btn btn-primary btn-sm">
 								Atender
 							</a>
 						</th>
@@ -104,10 +104,10 @@
 					<tbody id="dashboard_by_me">
 						@foreach($incidents_by_me as $incident)
 						<tr>
-							<th>{{ $incident->id}}</th>
+							<td> <a href="/ver/{{$incident->id}}">{{ $incident->id }}</a> </td>
 							<th>{{ $incident->category->name}}</th>
 							<th>{{ $incident->severity_full}}</th>
-							<th>{{ $incident->id}}</th>
+							<th>{{ $incident->state}}</th>
 							<th>{{ $incident->created_at}}</th>
 							<th>{{ $incident->title_short}}</th>
 							<th>{{ $incident->support_id ?: 'Sin asignar'}}</th>

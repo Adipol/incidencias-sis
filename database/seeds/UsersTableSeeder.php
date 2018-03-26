@@ -19,13 +19,6 @@ class UsersTableSeeder extends Seeder
 			'password'=>bcrypt('123'),
 			'role'=>0
 		]);
-		//Support
-		User::create([
-			'name'=>'Carol',
-			'email'=>'adipol123@gmail.com',
-			'password'=>bcrypt('123'),
-			'role'=>1
-		]);
 
 		// Client
 
