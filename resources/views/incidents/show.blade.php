@@ -76,7 +76,26 @@
 						</tr>
 					</tbody>
 				</table>
-				<button class="btn btn-primary" style="" id="incident_btn_apply"> Atender Incidencia</button>
+
+				@if($incident->support_id==null && $incident->active)
+			    <a href="/incidencia/{{ $incident->id }}/atender" class="btn btn-primary btn-sm" id="incident_btn_apply"> Atender Incidencia</a>
+				@endif
+
+				@if(auth()->user()->id==$incident->client_id)
+				 @if($incident->active)
+				 <a  href="/incidencia/{{ $incident->id }}/resolver" class="btn btn-info btn-sm" id="incident_btn_apply"> Marcar como resuelto</a>
+				 @else
+				<a  href="/incidencia/{{ $incident->id }}/abrir" class="btn btn-info btn-sm" id="incident_btn_apply"> Volver a abrir Incidencia</a>
+				@endif
+			
+				@endif
+
+				<a href="/incidencia/{{ $incident->id }}/editar" class="btn btn-success btn-sm" style="" id="incident_btn_apply"> Editar incidencia</a>
+
+				@if(auth()->user()->id == $incident->support_id && $incident->active)
+				<a href="/incidencia/{{ $incident->id }}/derivar" class="btn btn-danger btn-sm"  id="incident_btn_apply"> Derivar al siguiente nivel</a>
+				@endif
+
 			</div>
 		</div>
 	</div>	
