@@ -6,6 +6,14 @@
 	<div class="panel-heading">Dashboard</div>
 
 <div class="panel-body">
+
+
+		@if (session('notification'))
+		<div class="alert alert-success">
+				{{ session('notification')}}
+		</div>
+	@endif
+
 		@if (count($errors)>0)
 			<div class="alert alert-danger">
 				<ul>
@@ -43,7 +51,7 @@
 					<thead>
 						<tr>
 							<th>Asignada a</th>
-							<th>Visibilidad</th>
+							<th>Nivel</th>
 							<th>Estado</th>
 							<th>Severidad</th>
 						</tr>
@@ -52,7 +60,7 @@
 	
 						<tr>
 							<th>{{ $incident->support_name }}</th>
-							<th>Publico</th>
+							<th>{{ $incident->level->name}}</th>
 						    <th>{{ $incident->state }}</th>
 						    <th>{{ $incident->severity_full }}</th>
 						    
