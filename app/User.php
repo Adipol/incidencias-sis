@@ -27,6 +27,12 @@ class User extends Authenticatable
 		return $this->belongsToMany('App\Project');
 	}
 
+	public function cantake(Incident $incident){
+		return ProjectUser::where('user_id',$this->id)
+		->where('level_id',$incident->level_id)
+		->first();
+	}
+
 	//accessors
 	public function getListOfProjectsAttribute(){
 		if($this->role==1)
