@@ -43,6 +43,10 @@ class Incident extends Model
 	public function client(){
 		return $this->belongsTo('App\User','client_id');
 	}
+
+	public function messages(){
+		return $this->hasMany('App\Message');
+	}
 	 
 	public function getSeverityFullAttribute(){
 		switch ($this->severity){

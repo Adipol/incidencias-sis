@@ -33,6 +33,13 @@ class User extends Authenticatable
 		->first();
 	}
 
+	public function getAvatarPathAttribute(){
+		if($this->is_client)
+			return '/images/client.png';
+
+		return '/images/support.png';
+	}
+
 	//accessors
 	public function getListOfProjectsAttribute(){
 		if($this->role==1)
